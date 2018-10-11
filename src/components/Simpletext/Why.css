@@ -1,0 +1,11 @@
+.body{
+    min-width: 900px;
+}
+
+.imt{
+    display: 'block';
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    
+}

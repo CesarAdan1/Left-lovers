@@ -1,0 +1,31 @@
+.flex {
+  flex: 1 16%;
+}
+
+.mainflex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shots__stats {
+    color: #aaa;
+    font-size: 11px;
+  }
+  
+  .shots__list {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .shots__list li {
+    margin-left: 5px;
+  }
+  
+  .shots__list i {
+    margin-right: 5px;
+  }
+  
+  .liked {
+    color: #ED4888;
+  }
+

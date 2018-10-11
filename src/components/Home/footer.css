@@ -1,0 +1,27 @@
+.fa {
+    text-decoration: none;
+    width: 16px; 
+    margin:2px;  
+    display: flex;
+    flex: space-between;
+}
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+.fa-facebook {
+    
+    color:#FCE4EC;
+  }
+  
+  .fa-twitter {
+   
+    color: #FCE4EC;
+  }
+
+  .fa-instagram {
+    
+    color:#FCE4EC;
+  }
+

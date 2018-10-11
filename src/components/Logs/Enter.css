@@ -1,0 +1,25 @@
+.separate{
+    display: flex;
+    justify-content: center;
+    height:518px;
+    
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    justify-content: space-between;
+    
+}
+
+.child {
+
+    padding-left: 20px;
+    margin-right:50px;   
+}
+
+.space{
+    margin-top: 20px;
+}
