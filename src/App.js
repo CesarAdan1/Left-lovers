@@ -11,7 +11,6 @@ import Contacto from './components/Simpletext/Contacto';
 import Nosotros from './components/Simpletext/Nosotros';
 import FAQ from './components/Simpletext/FAQ';
 import Header from './components/Home/Header';
-import Products from './components/Home/Products';
 import Product from './components/Profiles/Product';
 import { Switch, Route, Redirect} from 'react-router-dom';
 import ProfileVendor from './components/Profiles/ProfileVendor';
@@ -40,8 +39,7 @@ class App extends Component {
      <Header/> 
      
       <Switch>
-      <PrivateRoute path={'/Profile'} exact component={ Profile } />
-        
+      <PrivateRoute path={'/Profile'} exact component={ Profile } />       
       <Route exact path={"/ProfileVendor"} component={ProfileVendor}/>
         <Route exact path={"/Product"} component={Product}/>
         <Route exact path={"/Enter"} component={Enter}/> 

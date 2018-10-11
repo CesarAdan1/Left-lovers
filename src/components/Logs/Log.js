@@ -5,34 +5,17 @@ import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { createMuiTheme} from '@material-ui/core';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Visibility from '@material-ui/icons/Visibility';
 import classNames from 'classnames';
-import IconButton from '@material-ui/core/IconButton';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import request from 'superagent'
+import request from 'superagent';
 import again from '../../images/again.jpeg'
-import {Link} from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import './Enter.css';
 
-  
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#48B2AB',
-    }
-
-  },
-});
 
 const styles = theme => ({
   layout: {
     width: 'auto',
-    display: 'block',
-    
+    display: 'block',   
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
@@ -43,8 +26,8 @@ const styles = theme => ({
   },
  
   form: {
-    // Fix IE11 issue.
-    width: '30%', // Fix IE11 issue.
+    
+    width: '30%', 
     marginTop: theme.spacing.unit,
     marginLeft: theme.spacing.unit*1,
     marginBottom: theme.spacing.unit,
@@ -90,7 +73,7 @@ class Log extends Component {
     e.preventDefault();
 
     request
-      .post('http://localhost:3001/api/v1/auth/signup')
+      .post('https://backendlefts.herokuapp.com/api/v1/auth/signup')
       .set({
         'Content-Type': 'application/json'   
       })

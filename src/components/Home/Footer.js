@@ -48,7 +48,7 @@ class Footer extends Component{
                 <AppBar position="static" color="secondary" >
                     <Toolbar>
                         <Button component={Link} to="/">
-                        <img style={stile} src={cerezasMonocromatic} />                   
+                        <img style={stile} src={cerezasMonocromatic} alt="logo"/>                   
                         </Button>
                         <img style={styles} src={LeftLoversBlack} alt="logo"/>
                         
@@ -70,10 +70,10 @@ class Footer extends Component{
                         <Divider color="primary"/>
                         
                         <Button>
-                            <img style={imag} src={iOs}/>
+                            <img style={imag} src={iOs} alt="logo"/>
                         </Button>
                         <Button>
-                            <img style={imag} src={android}/>
+                            <img style={imag} src={android} alt="logo"/>
                         </Button>
                    
                     </Toolbar>

@@ -1,23 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
 import Button  from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import  {withStyles}  from '@material-ui/core/styles';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { Redirect } from 'react-router-dom';
 import { Typography, Input, FormControl, InputLabel } from '@material-ui/core';
-import  withRouter  from 'react-router-dom';
 import request from 'superagent';
 
 const styles = theme => ({
@@ -52,7 +37,7 @@ const styles = theme => ({
       layout: {
         width: 'auto',
         display: 'block',
-        
+        minHeight:'50px',
         marginLeft: theme.spacing.unit * 3,
         marginRight: theme.spacing.unit * 3,
         [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
@@ -106,7 +91,7 @@ const styles = theme => ({
       e.preventDefault();
     
     request
-      .post('http://localhost:3001/api/v1/data')
+      .post('https://backendlefts.herokuapp.com/api/v1/data')
       .set({
         'Content-Type': 'application/json'
       })
@@ -118,9 +103,7 @@ const styles = theme => ({
         lastprice: this.state.lastprice,
         actualprice: this.state.actualprice,
         saving: this.state.saving,
-        availability: this.state.availability,
-       
-        
+        availability: this.state.availability       
       })
       .then(response => {
         if(response.ok) {

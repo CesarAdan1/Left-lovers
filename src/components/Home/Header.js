@@ -4,10 +4,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import  cereza  from './../../images/cereza.png';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import IconButton from '@material-ui/core/IconButton';
 import SearchAppBar from './Searchbar';
 import AuthService from '../../Utils/AuthService';
 import  LeftLoversBlue  from './../../images/LeftLoversBlue.svg';
@@ -44,14 +43,6 @@ const theme = createMuiTheme({
    
 }
 
-const stilo = {
-    marginLeft: '1%' ,
-}
-
-const formStyles = {
-    
-    margin: 'auto',
-  };
 const stile = {
   width: '80px'
 }

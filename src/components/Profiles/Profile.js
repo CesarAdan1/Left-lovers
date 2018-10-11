@@ -116,7 +116,7 @@ class  Profile extends Component {
 
  dataPlus = () => {
     request
-      .get('http://localhost:3001/api/v1/data')
+      .get('https://backendlefts.herokuapp.com/api/v1/data')
       .then(response => {
         this.setState({
           data: response.body.data

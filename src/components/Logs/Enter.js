@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Visibility from '@material-ui/icons/Visibility';
 import classNames from 'classnames';
-import IconButton from '@material-ui/core/IconButton';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import {Snackbar, Typography }from '@material-ui/core';
@@ -15,7 +10,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import AuthService from '../../Utils/AuthService';
 import { Redirect } from 'react-router-dom';
 import join from '../../images/join.jpeg'
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { createMuiTheme } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import './Enter.css';
 
@@ -31,7 +26,7 @@ const theme = createMuiTheme({
 const styles = theme => ({
   layout: {
     width: 'auto',
-    display: 'block', // Fix IE11 issue.
+    display: 'block', 
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
@@ -41,7 +36,7 @@ const styles = theme => ({
     },
   },
   form: {
-    width: '100%', // Fix IE11 issue.
+    width: '100%', 
     marginTop: theme.spacing.unit,
     marginBottom: theme.spacing.unit,
   },
@@ -107,9 +102,6 @@ class Enter extends Component {
   }
 
   handleClose = (event, reason) => {
-    // if (reason === 'clickaway') {
-    //   return;
-    // }
 
     this.setState({ onLoginError: false });
   };
@@ -133,14 +125,11 @@ class Enter extends Component {
           </div>
             <div className="space">
               <form className="child" onSubmit={ this.login } className={classes.layout}>
-              <Typography>Bienvenido de nuevo</Typography>
-                
+              <Typography>Bienvenido de nuevo</Typography>              
                 <FormControl margin="normal" required fullWidth  >
                   <InputLabel htmlFor="email">Email</InputLabel>
                   <Input id="email" name="email" autoComplete="email" autoFocus 
                   onChange={ this.handleChange }
-                  
-                  
                   />
                 </FormControl>
               
@@ -148,17 +137,11 @@ class Enter extends Component {
                       <InputLabel htmlFor="adornment-password">Contraseña</InputLabel>
                     <Input
                      onChange={ this.handleChange }
-                     type="text"
-                    
-                      
-                      
-                    />
-                    
-                </FormControl>
-          
+                     type="text"  
+                    />                   
+                </FormControl>         
                 <Button 
                   type="submit"
-                  
                   fullWidth
                   variant="raised"
                   color="secondary"
@@ -168,7 +151,6 @@ class Enter extends Component {
                 </Button>
                 <Link to={"/Log"}>Crea una cuenta </Link><Typography>y Únete a Nuestro Equipo</Typography>
               </form>
-
               <Snackbar
                 anchorOrigin={{
                   vertical: 'bottom',
@@ -184,7 +166,7 @@ class Enter extends Component {
               />
 
           </div>
-      </div>
+        </div>
       </div>
    
   );

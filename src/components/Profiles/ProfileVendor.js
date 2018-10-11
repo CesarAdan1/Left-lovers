@@ -90,7 +90,7 @@ class ProfileVendor extends Component{
         e.preventDefault();
 
         request
-          .post('http://localhost:3001/api/v1/googledata')
+          .post('https://backendlefts.herokuapp.com/api/v1/googledata')
           .set({
             'Content-Type': 'application/json'   
           })
@@ -119,7 +119,7 @@ class ProfileVendor extends Component{
    
     render() {
         const { classes } = this.props;
-        console.log(this.state)
+        console.log("user_id",this.state.user);     
         return (
 
             <div > 

@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import classnames from 'classnames';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import { Link } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
@@ -28,7 +25,7 @@ const styles = theme => ({
   },
   media: {
     height: 0,
-    paddingTop: '80%', // 16:9
+    paddingTop: '80%', 
   },
   actions: {
     display: 'flex',
@@ -69,7 +66,7 @@ class Products extends Component {
 
   dataGoogle = () => {
     request
-      .get('http://localhost:3001/api/v1/googledata')
+      .get('https://backendlefts.herokuapp.com/api/v1/googledata')
       .then(response => {
         this.setState({
           googledata: response.body.googledata
@@ -82,7 +79,7 @@ class Products extends Component {
 
   mainPageData = () => {
     request
-      .get('http://localhost:3001/api/v1/data')
+      .get('https://backendlefts.herokuapp.com/api/v1/data')
       .then(response => {
         this.setState({
           data: response.body.data
@@ -170,7 +167,7 @@ class Products extends Component {
            
           <IconButton className={ (this.state.liked === true) ? 'liked' : ''}
               onClick={ this.incrementLikes }  aria-label="Add to favorites">
-            <FavoriteIcon />{ this.state.likes }
+            <FavoriteIcon onClick={ this.state.likes }/>
           </IconButton>
 
           <IconButton aria-label="Share">
