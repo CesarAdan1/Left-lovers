@@ -4,7 +4,7 @@ const AuthService = {
   isAuthenticated: false,
   authenticate(credentials, done, onError) {
     request
-      .post('https://backendlefts.herokuapp.com/api/v1/auth/login')
+      .post('http://localhost:3001/api/v1/auth/login')
       .set('Content-Type', 'application/json')
       .send(credentials)
       .then(function(response) {

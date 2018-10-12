@@ -108,36 +108,38 @@ class  Profile extends Component {
     })
   }
 
-  componentWillMount(){
-    
-    this.completeForm();
-    this.dataPlus();
-  }
+ componentWillMount(){
+      this.mainPageData();
+      this.dataGoogle();
+    }
 
- dataPlus = () => {
+  dataGoogle = () => {
     request
-      .get('https://backendlefts.herokuapp.com/api/v1/data')
+      .get('http://localhost:3001/api/v1/googledata')
       .then(response => {
         this.setState({
-          data: response.body.data
+          googledata: response.body.googledata
+            
         })
-        console.log(response.body.data)
+        console.log(response.body.googledata)
       })
       .catch(error =>console.log(error));
   }
 
-  completeForm  = () => { 
+  mainPageData = () => {
     request
-      .get('http://localhost:3001/api/v1/googledata')
-      .then(response=>{
+      .get('http://localhost:3001/api/v1/data')
+      .then(response => {
         this.setState({
-          googledata: response.body.googledata
-        }) 
-        console.log(response.body.googledata) 
-      })                   
-        .catch(error =>console.log(error));
-       
-    }
+          data: response.body.data
+          
+        })
+        console.log(response.body.data)
+        console.log(response.body.data[0]._id)
+      })
+      .catch(error =>console.log(error));
+     
+  }
   
   render(){
 
@@ -146,15 +148,14 @@ class  Profile extends Component {
     <div >
     {this.state.googledata.map(googledata=> {
      console.log(googledata.user)
-   
-     //if(localStorage.getItem('user_id')===googledata.user){
+ 
       return(       
           <div>     
             <Card className={classes.card}>
             <CardActionArea>
               <CardMedia
                 component="img"
-                          alt="Contemplative Reptile"
+                alt="Contemplative Reptile"
                 className={classes.media}
                 height="140"
                 image={beergarden}
@@ -172,16 +173,13 @@ class  Profile extends Component {
                 </Typography>
                 <Typography component="p" >                 
                   Teléfono de Contacto: {googledata.telefono} 
-                </Typography>
-                
+                </Typography>               
                 <Button variant="contained" color="secondary" className={classes.button}>
                     Editar
                 <EditIcon className={classes.leftIcon} />
-                </Button>
-                
+                </Button>            
                 </CardContent>
-            </CardActionArea>    
-          
+            </CardActionArea>        
           </Card>
           <Button component={Link} to="/Product"
           variant="contained" color="primary" 
@@ -190,8 +188,7 @@ class  Profile extends Component {
           <AddIcon className={classes.rightIcon} />
           </Button>
           <div className="mainflex">
-          {this.state.data.map(data => {
-            
+          {this.state.data.map(data => {           
             if(localStorage.getItem('user_id')===data.user){
               return(
             <div className="flex">
@@ -237,12 +234,12 @@ class  Profile extends Component {
                 <DeleteIcon className={classes.rightIcon} /></Button>
             </Card> 
             
-            </div> 
+            </div>  
             )}})}
                   </div>
                  
           </div>  
-  // )}
+  
       )    
    })}         
   

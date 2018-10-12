@@ -1,7 +1,8 @@
 .separate{
     display: flex;
     justify-content: center;
-    height:518px;
+    height:500px;
+    padding: 30px 120px;
     
 }
 

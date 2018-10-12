@@ -1,9 +1,12 @@
+
+
+.flex {
+  flex: 1 16%;
+
+}
+
 .mainflex {
   display: flex;
   flex-wrap: wrap;
+  min-height: 210px
 }
-
-.flex {
-    
-  flex: 1 16%;
-  }

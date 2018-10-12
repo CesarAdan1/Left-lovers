@@ -16,8 +16,9 @@ const styles = theme => ({
   layout: {
     width: 'auto',
     display: 'block',   
-    marginLeft: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit * 6,
     marginRight: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit*3,
     [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
       width: 400,
       marginLeft: 'auto',
@@ -73,7 +74,7 @@ class Log extends Component {
     e.preventDefault();
 
     request
-      .post('https://backendlefts.herokuapp.com/api/v1/auth/signup')
+      .post('http://localhost:3001/api/v1/auth/signup')
       .set({
         'Content-Type': 'application/json'   
       })

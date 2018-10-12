@@ -90,7 +90,7 @@ class ProfileVendor extends Component{
         e.preventDefault();
 
         request
-          .post('https://backendlefts.herokuapp.com/api/v1/googledata')
+          .post('http://localhost:3001/api/v1/googledata')
           .set({
             'Content-Type': 'application/json'   
           })

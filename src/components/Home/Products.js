@@ -66,7 +66,7 @@ class Products extends Component {
 
   dataGoogle = () => {
     request
-      .get('https://backendlefts.herokuapp.com/api/v1/googledata')
+      .get('http://localhost:3001/api/v1/googledata')
       .then(response => {
         this.setState({
           googledata: response.body.googledata
@@ -79,7 +79,7 @@ class Products extends Component {
 
   mainPageData = () => {
     request
-      .get('https://backendlefts.herokuapp.com/api/v1/data')
+      .get('http://localhost:3001/api/v1/data')
       .then(response => {
         this.setState({
           data: response.body.data

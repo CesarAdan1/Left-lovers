@@ -90,13 +90,7 @@ const styles = theme => ({
     onSubmit = e =>{
       e.preventDefault();
     
-    request
-      .post('https://backendlefts.herokuapp.com/api/v1/data')
-      .set({
-        'Content-Type': 'application/json'
-      })
-      .send
-        ({
+    let obj = {
         user: this.state.user,
         kind: this.state.kind,
         food: this.state.food,
@@ -104,7 +98,16 @@ const styles = theme => ({
         actualprice: this.state.actualprice,
         saving: this.state.saving,
         availability: this.state.availability       
+      }
+
+    console.log(obj)  
+    request
+      .post('http://localhost:3001/api/v1/data')
+      .set({
+        'Content-Type': 'application/json'
       })
+      .send
+        (obj)
       .then(response => {
         if(response.ok) {
           this.props.history.push('/Profile')
@@ -115,7 +118,7 @@ const styles = theme => ({
       }
 
   render() {
-    
+      console.log(this.state)
       const{classes} = this.props; 
       console.log("user_id",this.state.user);     
    return (
