@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
+import Navigationbar from './Navigationbar'
 import Products from './Products';
 
 const styles={
@@ -10,7 +11,7 @@ class Home extends Component {
         return (
             <div style={styles}>
                             
-               <Navbar/>             
+               <Navigationbar/>             
                <Products/>
                                           
             </div>
