@@ -40,7 +40,7 @@ const imag = {
 }
 
 const footer = {
-    
+    flexGrow: 1,
     marginTop: '100%', 
     display: 'flex',
     width: '100%',
