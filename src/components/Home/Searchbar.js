@@ -1,19 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Toolbar from '@material-ui/core/Toolbar';
-import Input from '@material-ui/core/Input';
+import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import Autosuggest from 'react-autosuggest';
 
 const styles = theme => ({
-  root: {
-    width: '100%',
-  },
-  grow: {
-    flexGrow: 1,
-  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -21,16 +14,16 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 2,
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing.unit,
+      marginLeft: theme.spacing.unit * 3,
       width: 'auto',
     },
   },
   searchIcon: {
-    width: theme.spacing.unit * 5,
+    width: theme.spacing.unit * 9,
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -46,125 +39,34 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
     paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit *4,
+    paddingLeft: theme.spacing.unit * 7,
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: 120,
-      '&:focus': {
-        width: 200,
-      },
+    [theme.breakpoints.up('md')]: {
+      width: 200,
     },
   },
 });
 
-const languages = [
-  {
-    label: 'Spanish'
-  },
-  {
-   label: 'English',
-  },
-  {
-    label: 'Russian',
-   },
-  
-];
-
-
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-
-  return inputLength === 0 ? [] : languages.filter(lang =>
-    lang.name.toLowerCase().slice(0, inputLength) === inputValue
-  );
-};
-const getSuggestionValue = suggestion => suggestion.name;
-
-// Use your imagination to render suggestions.
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-);
-
 class SearchAppBar extends Component {
-  constructor() {
-    super();
-
-  
-    this.state = {
-      value: '',
-      suggestions: []
-    };
-  }
-
-  onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue
-    });
-  };
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: getSuggestions(value)
-    });
-  };
-
-  // Autosuggest will call this function every time you need to clear suggestions.
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
-
-  render(){
-    const { value, suggestions } = this.state;
-
-    // Autosuggest will pass through all these props to the input.
-    const inputProps = {
-      
-      value,
-      onChange: this.onChange
-    };
-    
-  const { classes } = this.props;
-  return (
-    <div className={classes.root}>    
-        <Toolbar>         
-          <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon>       
-              </SearchIcon>             
-            </div>
-            <Input 
-             placeholder="Comienza tu busqueda…"
-            disableUnderline
-              
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-             > 
-           <Autosuggest         
-              inputProps={inputProps}
-              suggestions={suggestions}
-              onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-              onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-              getSuggestionValue={getSuggestionValue}
-              renderSuggestion={renderSuggestion}
-             /></Input>
-                            
-          </div>
-        </Toolbar>
+  render(){  
+    const { classes } = this.props;
+    return (
+      <div className={classes.search}>
+      <div className={classes.searchIcon}>
+        <SearchIcon />
+      </div>
+      <InputBase
+        placeholder="Comienza tu busqueda aquí…"
+        classes={{
+          root: classes.inputRoot,
+          input: classes.inputInput,
+        }}
+      />
     </div>
-  );
+    )
+  }
 }
-}
-
 SearchAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };

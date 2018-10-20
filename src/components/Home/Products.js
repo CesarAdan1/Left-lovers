@@ -5,20 +5,18 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import basket from '../../images/basket.jpeg'
+import PreferandShare from './PreferandShare';
 import request from 'superagent'
 import './Products.css'
 
 const styles = theme => ({
   card: {
-    maxWidth:800,   
+    maxWidth:500,   
     marginLeft: theme.spacing.unit*3 ,
     marginRight: theme.spacing.unit*3 ,
     marginBottom: theme.spacing.unit * 1,
@@ -52,13 +50,10 @@ class Products extends Component {
   constructor(props) {
     super();
     this.state = {
-      likes: props.l,
-      liked: false,
       data:[],
       googledata:[]
     };
   }
-
   componentWillMount(){
       this.mainPageData();
       this.dataGoogle();
@@ -89,25 +84,7 @@ class Products extends Component {
         console.log(response.body.data[0]._id)
       })
       .catch(error =>console.log(error));
-     
-  }
-
-  incrementLikes = (e) => {
-    e.preventDefault();
-
-    if (this.state.liked === false) {
-      this.setState({
-        likes: parseInt(this.state.likes) + 1,
-        liked: true
-      });
-    } else {
-      this.setState({
-        likes: parseInt(this.state.likes) - 1,
-        liked: false
-      });
     }
-  }
- 
   render() {
     const { classes } = this.props;    
     return (
@@ -159,30 +136,13 @@ class Products extends Component {
           </Typography>
             <Typography color="secondary" component="p">
               Ahorro: ${data.saving}
-            </Typography>
-         
-         
-        </CardContent>
-        <CardActions className={classes.actions} disableActionSpacing>
-           
-          <IconButton className={ (this.state.liked === true) ? 'liked' : ''}
-              onClick={ this.incrementLikes }  aria-label="Add to favorites">
-            <FavoriteIcon onClick={ this.state.likes }/>
-          </IconButton>
-
-          <IconButton aria-label="Share">
-            <ShareIcon />
-          </IconButton>
-          <Typography paragraph variant="body2">
-             Más sobre este usuario
-            </Typography>
-          
-        </CardActions>           
+            </Typography>       
+        </CardContent>  
+        <PreferandShare />        
       </Card>
       </div>
       ) 
-      })}
-       
+      })}       
       </div>
     );
   }

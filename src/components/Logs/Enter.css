@@ -22,3 +22,11 @@
 .space{
     margin-top: 20px;
 }
+
+.icon {
+    background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+      height: 20px;
+}

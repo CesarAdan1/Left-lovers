@@ -22,8 +22,11 @@ class Accounts extends Component {
             <div>
                 <h1>Escoge tu tipo de cuenta</h1>
 
-               <Button className={classes.button} component={Link} to="/Enter">
+               <Button className={classes.button} component={Link} to="/Log">
                 Vendedor/Productor
+              </Button>
+              <Button className={classes.button} component={Link} to="/LogConsumer">
+                Consumidor
               </Button>
               {/* <Button className={classes.button} component={Link} to="/CommonUser">Usuario</Button> */}
             </div>

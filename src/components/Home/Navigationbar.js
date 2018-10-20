@@ -55,7 +55,12 @@ const styles = theme => ({
     overflow: 'hidden',
     width: '100%',
   },
+  
 });
+
+const stylese = {
+  color: '#48B2AB'
+}
 
 class SwipeableTextMobileStepper extends React.Component {
   state = {
@@ -122,7 +127,7 @@ class SwipeableTextMobileStepper extends React.Component {
           }
         />
       </div>
-      <Middlebar/>
+      
       </React.Fragment>
     );
   }
