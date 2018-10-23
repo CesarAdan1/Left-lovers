@@ -4,18 +4,18 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar  from '@material-ui/core/Toolbar';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
-import cerezasMonocromatic from './../../images/cerezasMonocromatic.svg';
-import LeftLoversBlack from '../../images/LeftLoversBlack.svg'
+import cerezasMonocromatic from '../../../images/cerezasMonocromatic.svg';
+import LeftLoversBlack from '../../../images/LeftLoversBlack.svg'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Hidden from '@material-ui/core/Hidden';
 import compose from 'recompose/compose';
 import Grid from '@material-ui/core/Grid';
 import withWidth from '@material-ui/core/withWidth';
-import iOs  from '../../images/iOs.png';
-import android  from '../../images/android.png';
+import iOs  from '../../../images/iOs.png';
+import android  from '../../../images/android.png';
 import './footer.css';
 
 const theme = createMuiTheme({
@@ -36,7 +36,7 @@ const theme = createMuiTheme({
         marginLeft: '3px'
  },
     stile: {
-        width:'30px'
+        width:'40px'
     },
     imagen: {
         width: '130px',
@@ -67,7 +67,7 @@ class Footer extends Component{
                                 <Button size="small"component={Link} to="/">
                                     <img className={classes.stile} src={cerezasMonocromatic} alt="logo"/>                   
                                 </Button>
-                                <img className={classes.imagen} src={LeftLoversBlack} alt="logo"/> 
+                                    <img className={classes.imagen} src={LeftLoversBlack} alt="logo"/> 
                             </div>
                             <Divider/>
                                 <div className="display">
@@ -83,43 +83,43 @@ class Footer extends Component{
                                     </div>
                                     <div className="wrap">
                                     <ul>
-                                        <li className="item_title">Rentabiliza - Ahorra - Ayuda</li>
-                                        <li className="item">Publicar Ofertas</li>
-                                        <li className="item">Ver Ofertas</li>
-                                        <li className="item">Beneficios</li>
-                                        <li className="item">Ayuda a que no se desperdicie comida</li>
+                                        <Link to="/RAA" className="linkstylel"><li className="item_title">Rentabiliza - Ahorra - Ayuda</li></Link>
+                                        <Link to="/PublicarOfertas" className="linkstylel"><li className="item">Publicar Ofertas</li></Link>
+                                        <Link to="/verOfertas" className="linkstylel"><li className="item">Ver Ofertas</li></Link>
+                                        <Link to="/Beneficios" className="linkstylel"><li className="item">Beneficios</li></Link>
+                                        <Link to="/Ayuda" className="linkstylel"><li className="item">Ayuda a que no se desperdicie comida</li></Link>
                                     </ul>
                                     </div>
                                     <div className="wrap">
                                     <ul >
                                         <li className="item_title">Programas  <Link to="/Programas"><a className="link"href="#">Ver más</a></Link></li>
-                                        <li className="item">Comedores Comunitarios</li>
-                                        <li className="item">Voluntarios</li>
-                                        <li className="item">Recolectas</li>
+                                        <Link to="/ComedoresComunitarios" className="linkstylel"><li className="item">Comedores Comunitarios</li></Link>
+                                        <Link to="/Voluntarios" className="linkstylel"><li className="item">Voluntarios</li></Link>
+                                        <Link to="/Colectas" className="linkstylel"><li className="item">Colectas</li></Link>
                                         <li className="item"></li>
                                     </ul>
                                     </div>
                                     <div className="wrap">
                                     <ul >
                                         <li className="item_title">Nosotros</li>
-                                        <Link to="/Nosotros"><li className="item">Left Lovers</li></Link>
-                                        <Link to="/FAQ"><li className="item">Preguntas Frecuentes</li></Link>
-                                        <Link to="Contacto"><li className="item">Contacto</li></Link>
-                                        <Link to="/API"><li className="item">API</li></Link>
+                                        <Link  to="/Nosotros" className="linkstylel"><li className="item">Left Lovers</li></Link>
+                                        <Link to="/FAQ" className="linkstylel"><li className="item">Preguntas Frecuentes</li></Link>
+                                        <Link to="Contacto" className="linkstylel"><li className="item">Contacto</li></Link>
+                                        <Link to="/API" className="linkstylel"><li className="item">API</li></Link>
                                     </ul>
                                     </div>
                                 
                                     <div className="alignItemse">
                                     <ul className="appImages">
                                         <li className="appLink"><Button><img className={classes.imagen} src={iOs} alt="logo"/></Button></li>
-                                        
                                         <li className="appLink"><Button><img className={classes.imagen} src={android} alt="logo"/></Button></li>
                                     </ul>
                              
                                     <ul className="pageDefense">
-                                        <Link to="TerminosyCondiciones"><li className="itemRight">Términos y Condiciones</li></Link>
-                                        <Link to="/Privacidad"><li className="itemRight">Aviso de Privacidad</li></Link>
-                                        <Link to="/CondicionesdeUso"><li className="itemRight">Condiciones de Uso</li></Link>
+                                        <li className="itemRight">&copy; 2018 Left Lovers</li>
+                                        <Link to="TerminosyCondiciones" className="linkstylel"><li className="itemRight">Términos y Condiciones</li></Link>
+                                        <Link to="/Privacidad" className="linkstylel"><li className="itemRight">Aviso de Privacidad</li></Link>
+                                        <Link to="/CondicionesdeUso" className="linkstylel"><li className="itemRight">Condiciones de Uso</li></Link>
                                     </ul>
                                 </div>
                               </div>

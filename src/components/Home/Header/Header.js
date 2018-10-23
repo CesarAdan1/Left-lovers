@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -12,13 +13,14 @@ import withWidth from '@material-ui/core/withWidth'
 import Badge from '@material-ui/core/Badge';
 import { createMuiTheme, MuiThemeProvider, IconButton , 
   Typography, Card} from '@material-ui/core';
-import { Link, withRouter } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import  cereza  from './../../images/cereza.png';
+import  cereza  from '../../../images/cereza.png';
 import SearchAppBar from './Searchbar';
-import AuthService from '../../Utils/AuthService';
-import  LeftLoversBlue  from './../../images/LeftLoversBlue.svg';
+import Menuopt from './Menuopt';
+import AuthService from '../../../Utils/AuthService';
+import  LeftLoversBlue  from './../../../images/LeftLoversBlue.svg';
 import ResponsiveDrawer from './ResponsiveDrawer';
+import './header.css';
 
 const theme = createMuiTheme({
     palette: {
@@ -37,23 +39,23 @@ const AuthButton = withRouter(({ history }) => (
   // AuthService.isAuthenticated === true
   localStorage.getItem('jwt') !== null
     ? 
-    <div>
+    <div className="display">
       <MuiThemeProvider theme={theme}>
-      <Button color='primary' onClick={() => {
+      <Button style={stilo} color='secondary' onClick={() => {
       AuthService.signout(() => {
         history.push('/')
       });
-    }}><Typography color="secondary">Salir</Typography></Button>
+    }}>Salir</Button>
             <Options/>
             </MuiThemeProvider>
             </div>
     : 
     <div>
       <MuiThemeProvider theme={theme}>
-        <Button component={ Link } variant="contained" to='/Enter'  color="primary">
+        <Button style={stilo} component={ Link } variant="contained" to='/Enter'  color="primary">
           <Typography style={stylos}>Iniciar Sesión</Typography>
         </Button>
-        <Button color="secondary" variant="contained" component={Link} to="/Accounts">
+        <Button style={stilo} color="secondary" variant="contained" component={Link} to="/Accounts">
           <Typography style={stylos}>Únete</Typography>
         </Button>
       </MuiThemeProvider>
@@ -64,6 +66,13 @@ const stylos = {
   fontSize: '14px',
   color:"white"
 }
+
+const stilo ={
+    textTransform: 'none',
+    fontSize: '15px',
+    textFont: 'arial',
+    marginRight: 0
+  }
 
 const styles = theme => ({
   badge: {
@@ -84,60 +93,46 @@ const styles = theme => ({
     backgroundColor: 'transparent',
     borderStyle: 'none',
   },
-  
-  
 });
 
-const space = {
-   padding: '5px',
-   marginLeft: '4px'
-}
-  
 class Header extends Component {
-
     render() {
       const { classes } = this.props;
         return (
             <div>            
                <MuiThemeProvider theme={theme}>
                 <AppBar position='static' color="primary">
-                    <Toolbar>
-                          <Hidden only={['md', 'lg', 'sm', 'xl']}>
-                            <ResponsiveDrawer/>
-                          </Hidden>
-                          <Button component={Link} to="/">
-                            <img className={classes.image} src={cereza} alt="logo"/>
-                          </Button>
-                            <img className={classes.logo} src={LeftLoversBlue} alt="logo"/>
-                          <Hidden only={['xs']}>
-                            <SearchAppBar /> 
-                          </Hidden>
-                      <Card className={classes.card}> 
-                          <div  className="container-flex">
-                              <Button component={ Link } to="/quees" color="secondary" >
-                                  <Typography style={stylos}>¿Qué es?</Typography>
-                              </Button>
-                              <Button  component={ Link } to="/como" color="secondary">
-                                <Typography style={stylos}>¿Cómo Funciona?</Typography>
-                              </Button>
-                              <Button  component={ Link } to="/porque" color="secondary">
-                                <Typography style={stylos}>¿Por qué?</Typography>
-                              </Button>
+                     
+                          <Toolbar>
+                              <Hidden only={['md', 'lg', 'xl']}>
+                                <ResponsiveDrawer/>
+                              </Hidden>
+                              
+                                      <Button component={Link} to="/">
+                                          <img className={classes.image} src={cereza} alt="logo"/>
+                                      </Button>
+                                        <img className={classes.logo} src={LeftLoversBlue} alt="logo"/>
+                                
+                                  <Hidden only={['xs','sm']}>
+                                   <SearchAppBar />
+                                  </Hidden>
+                            
+                              <Hidden only={['xs','sm']}>
+                                  <Menuopt/>
+                              </Hidden>
+                              <div className="flex-menu">
+                              <AuthButton  color="secondary"/>
+                              <IconButton  aria-label="Cart">
+                              <Badge badgeContent={0}  classes={{ badge: classes.badge }}>
+                                <ShoppingCartIcon color="default"/>
+                              </Badge>
+                              </IconButton>
                           </div>
-                      </Card>
-                      <IconButton style={space} aria-label="Cart">
-                      <Badge badgeContent={0}  classes={{ badge: classes.badge }}>
-                        <ShoppingCartIcon color="default"/>
-                      </Badge>
-                      </IconButton>
-                      <AuthButton  style={space} color="secondary"/>                                             
-                    </Toolbar>
-                    
+                                                               
+                    </Toolbar> 
                     
                 </AppBar>
-                
               </MuiThemeProvider>
-  
             </div>
         );
     }

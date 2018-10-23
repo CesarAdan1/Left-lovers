@@ -1,7 +1,7 @@
 .display{
   display: flex;
   flex-wrap: wrap;
-  justify-items: flex-start
+  flex-direction: row-reverse;
 }
 
 .wrap{
@@ -24,7 +24,7 @@
 .social_align{
   
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .space {
@@ -43,6 +43,49 @@
 
 .item_social:hover{
   color: #959da5
+}
+
+.fa {
+  text-decoration: none;
+  width: 16px; 
+  margin:2px;  
+  display: flex;
+  flex: space-between;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  
+  color:#FCE4EC;
+}
+
+.fa-twitter {
+ 
+  color: #FCE4EC;
+}
+
+.fa-instagram {
+  
+  color:#FCE4EC;
+}
+
+.linkstylel{
+  padding-left: 5px;
+  text-decoration: none;
+  padding-right: 5px;
+  color: white;
+  font-size: 13px !important;
+  display: list-item;
+  list-style: none;
+  cursor: pointer;
+}
+
+.linkstylel:hover{
+text-decoration: underline;
+color: #959da5;
 }
 
 .item{
@@ -69,7 +112,7 @@
 
 .link:hover{
   cursor:pointer;
-  color:orange;
+  color:#f50057;
 }
 
 .appImages{
@@ -100,32 +143,4 @@
   text-decoration: underline;
   color: #959da5
 }
-
-.fa {
-    text-decoration: none;
-    width: 16px; 
-    margin:2px;  
-    display: flex;
-    flex: space-between;
-}
-  
-  .fa:hover {
-      opacity: 0.7;
-
-  }
-
-.fa-facebook {
-    
-    color:#FCE4EC;
-  }
-  
-  .fa-twitter {
-   
-    color: #FCE4EC;
-  }
-
-  .fa-instagram {
-    
-    color:#FCE4EC;
-  }
 

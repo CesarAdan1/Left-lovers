@@ -6,7 +6,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { Link, withRouter } from 'react-router-dom';
-import { createMuiTheme, MuiThemeProvider, IconButton } from '@material-ui/core';
+import { createMuiTheme, MuiThemeProvider, IconButton,
+    Typography } from '@material-ui/core';
 import Collapse from '@material-ui/core/Collapse';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import ExpandLess from '@material-ui/icons/ExpandLess';
@@ -18,7 +19,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Divider from '@material-ui/core/Divider';
 //import { mailFolderListItems, otherMailFolderListItems } from './tileData';
-import logoleftlovers from '../../images/logoleftlovers.png';
+import albondigas from '../../../images/albondigas.jpeg';
+
 
 const theme = createMuiTheme({
     palette: {
@@ -55,7 +57,8 @@ class ResponsiveDrawer extends Component {
         super();
     
         this.state = {
-          open: false
+          open: false,
+          open1: true
 
         };
       }
@@ -65,10 +68,6 @@ class ResponsiveDrawer extends Component {
           open: !this.state.open
         });
       }
-      state = {
-        open1: true,
-      };
-    
       handleClick = () => {
         this.setState(state => ({ open1: !state.open1 }));
       };
@@ -80,14 +79,27 @@ class ResponsiveDrawer extends Component {
           };  
             
           const linkStyles = {
+            textTransform: 'none',
+            textDecoration: 'none',
+            fontSize: 14,
+            fontFamily: 'Roboto',
+            fontWeight: 500,
+            color: 'black',
+            fontFamily: 'Monserrat',
+            backgroundColor: '#48B2AB'
+          };
+          
+          const linkStyle = {
             textTransform: 'uppercase',
             textDecoration: 'none',
             fontSize: 14,
             fontFamily: 'Roboto',
             fontWeight: 500,
-            color: 'black'
+            color: 'black',
+            fontFamily: 'Monserrat',
+            backgroundColor: '#48B2AB'
           };
-      
+
         return(
             <div>
               <MuiThemeProvider theme={theme}>
@@ -101,39 +113,50 @@ class ResponsiveDrawer extends Component {
                             onClick={ this.toggleDrawer }
                             onKeyDown={ this.toggleDrawer }
                             >
-                            <List>
-                                <img className={classes.imagen} src={logoleftlovers} alt="logo"/>
-
+                            <List color="primary">
+                                <img className={classes.imagen} src={albondigas} alt="logo"/>
                                 {/* <ListItem>
                                 <ListItemText style={ ListItemTextStyle } primary="Dashboard" />
                                 </ListItem> */}
-                                <ListItem button onClick={this.handleClick}>       
+                                <ListItem color="primary"button onClick={this.handleClick}>       
                                     {this.state.open1 ? <ExpandLess /> : <ExpandMore />}
                                 </ListItem>
-                                    <Collapse className={classes.arrow} color="secondary" in={this.state.open} timeout="auto" unmountOnExit>
+                                    <Collapse className={classes.arrow} color="primary" in={this.state.open1} timeout="auto" unmountOnExit>
                                         <List component="div" disablePadding>
-                                        <ListItem button className={classes.nested}>
-                                            <ListItemIcon>
-                                            <StarBorder />
-                                            </ListItemIcon>
+                                        <ListItem color="primary" button className={classes.nested}>
+                                                <ListItemIcon>
+                                                    <StarBorder />
+                                                </ListItemIcon>
                                             <ListItemText inset primary="Starred" />
                                         </ListItem>
                                         </List>
                                     </Collapse>
-                                <ListItem button>
-                                <Link style={ linkStyles } to='/Nosotros'>
-                                    Nosotros
-                                </Link>
-                                </ListItem>
-                                <Divider />
-                                <ListItem button>
-                                <Link style={ linkStyles } to='/FAQ'>
-                                    FAQ
-                                </Link>
-                                </ListItem>
-                            </List>
-                            </div>
-                        </Drawer>
+                                    <ListItem button color="primary">
+                                            <Link style={ linkStyles } to="/quees" >¿Qué es?</Link>
+                                    </ListItem >
+                                    <ListItem button color="primary">
+                                            <Link style={ linkStyles } to="/como" >¿Cómo Funciona?</Link>
+                                        
+                                    </ListItem>
+                                    <ListItem button color="primary">
+                                    
+                                        <Link style={ linkStyles } to="/porque" >¿Por qué?</Link>
+                                        
+                                    </ListItem>
+                                    <ListItem button>
+                                    <Link style={ linkStyles } to='/Nosotros'>
+                                        Nosotros
+                                    </Link>
+                                    </ListItem>
+                                    <Divider />
+                                    <ListItem button>
+                                    <Link style={ linkStyle } to='/FAQ'>
+                                        FAQ
+                                    </Link>
+                                    </ListItem>
+                                </List>
+                                </div>
+                            </Drawer>
 
                  </MuiThemeProvider>
             </div>

@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import Searchbar from './Searchbar';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -17,22 +14,22 @@ const tutorialSteps = [
   {
     label: '¿Qué es?',
     imgPath:
-      'src/images/pizza.jpeg'
+      'https://www.android.gs/wp-content/uploads/2012/05/Gapps-for-Download-600x340.jpg'
   },
   {
     label: '¿Por qué?',
     imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+    'https://images.pexels.com/photos/5317/food-salad-restaurant-person.jpg?auto=compress&cs=tinysrgb&h=350'
   },
   {
     label: '¿Cómo Funciona?',
     imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+      'https://static.promodescuentos.com/pepperpdimages/threads/thread_full_screen/default/21113_1.jpg',
   },
   {
     label: 'Contacto',
     imgPath:
-      'https://images.unsplash.com/photo-1518732714860-b62714ce0c59?auto=format&fit=crop&w=400&h=250&q=60',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7gYJrfqOTMKu5ehBwZqy4LxoWXPJ4ZImX-s-iXKC7nsjXjKbG8w',
   },
 ];
 
@@ -62,7 +59,7 @@ const stylese = {
   color: '#48B2AB'
 }
 
-class SwipeableTextMobileStepper extends React.Component {
+class Mobilestepper extends Component {
   state = {
     activeStep: 0,
   };
@@ -91,15 +88,12 @@ class SwipeableTextMobileStepper extends React.Component {
     return (
     <React.Fragment>
       <div className={classes.root}>
-        <AutoPlaySwipeableViews
+      <AutoPlaySwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeStep}
           onChangeIndex={this.handleStepChange}
           enableMouseEvents
         >
-        {/* <Paper square elevation={0} className={classes.header}>
-          <Typography>{tutorialSteps[activeStep].label}</Typography>
-        </Paper> */}
           {tutorialSteps.map((step, index) => (
             <div key={step.label}>
               {Math.abs(activeStep - index) <= 2 ? (
@@ -115,27 +109,24 @@ class SwipeableTextMobileStepper extends React.Component {
           className={classes.mobileStepper}
           nextButton={
             <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
-              
               {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
             </Button>
           }
           backButton={
             <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
-              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-              
+              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />} 
             </Button>
           }
         /> 
       </div>
-      
       </React.Fragment>
     );
   }
 }
 
-SwipeableTextMobileStepper.propTypes = {
+Mobilestepper.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(SwipeableTextMobileStepper);
+export default withStyles(styles, { withTheme: true })(Mobilestepper);

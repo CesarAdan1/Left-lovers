@@ -14,42 +14,33 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 
 const styles = theme => ({
-    badge: {
-      top: 1,
-      right: -15,
-      // The border color match the background color.
-      border: `2px solid ${
-        theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900]
-      }`,
-    },
-    image: {
-      width: '30px'
-    },
-    logo: {
-      width: '80px'
-    },
-    card: {
-      backgroundColor: 'transparent',
-      borderStyle: 'none',
-    },
+     style: {
+        color: 'white',
+        padding: '0 30px',
+        textTransform: "lowercase",
+        display:'flex',
+        alignItems: 'center',
+      },
+    
   });
 
 class Options extends Component {
     render(){
+        const {classes} = this.props;
         return(
-            <div>
-
-               <Button  component={Link} to="/profileNotifications">
-                    <NotificationsIcon color="secondary"/>
-                </Button>
-                <Button  component={Link} to="/Profile">
-                    <AccountCircle color="secondary"/>
-                </Button>
-                <Button>
-                    <MailIcon color="secondary"/>
-                </Button> 
-
-
+            <div className={classes.style}>
+                <Hidden only={['xs','sm']}>
+                    <Button  component={Link} to="/profileNotifications">
+                        <NotificationsIcon color="secondary"/>
+                    </Button>
+                    <Button  component={Link} to="/Profile">
+                        <AccountCircle color="secondary"/>
+                    </Button>
+                    <Button>
+                        <MailIcon color="secondary"/>
+                    </Button> 
+                </Hidden>
+            
             </div>
         )
     }

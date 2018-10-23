@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Home from './components/Home/Home';
-import Footer from './components/Home/Footer';
+import Footer from './components/Home/Footer/Footer';
 import Enter from './components/Logs/Enter';
 import How from './components/Simpletext/How';
 import What from './components/Simpletext/What';
@@ -10,7 +10,7 @@ import Log from './components/Logs/Log';
 import Contacto from './components/Simpletext/Contacto';
 import Nosotros from './components/Simpletext/Nosotros';
 import FAQ from './components/Simpletext/FAQ';
-import Header from './components/Home/Header';
+import Header from './components/Home/Header/Header';
 import Product from './components/Profiles/Product';
 import { Switch, Route, Redirect} from 'react-router-dom';
 import ProfileVendor from './components/Profiles/ProfileVendor';

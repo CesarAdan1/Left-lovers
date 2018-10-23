@@ -1,0 +1,11 @@
+.flex-menu{
+    display: flex;
+    margin-right: auto;
+    flex-direction: row-reverse;  
+}
+
+.display{
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
