@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
 import Navigationbar from './Navigationbar'
+import Popular from '../Products/Popular'
+import Selling from '../Products/Selling';
 import Products from './Products';
 
 const styles={
@@ -11,8 +12,11 @@ class Home extends Component {
         return (
             <div style={styles}>
                             
-               <Navigationbar/>             
+               <Navigationbar/> 
+                                     
                <Products/>
+               <Popular/>
+               <Selling /> 
                                           
             </div>
         );

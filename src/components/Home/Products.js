@@ -16,7 +16,7 @@ import './Products.css'
 
 const styles = theme => ({
   card: {
-    maxWidth:500,   
+    maxWidth:300,   
     marginLeft: theme.spacing.unit*3 ,
     marginRight: theme.spacing.unit*3 ,
     marginBottom: theme.spacing.unit * 1,
@@ -93,6 +93,7 @@ class Products extends Component {
          console.log(data._id)
       return(  
       <div className="flex">
+      
       <Card className={classes.card}>
         <CardHeader         
           action={
@@ -112,6 +113,7 @@ class Products extends Component {
           image={basket}
           title="Here is a dish"
         />
+        <PreferandShare />
         <CardContent>  
           <Typography component="p">
             Tipo: {data.kind}
@@ -138,7 +140,7 @@ class Products extends Component {
               Ahorro: ${data.saving}
             </Typography>       
         </CardContent>  
-        <PreferandShare />        
+                
       </Card>
       </div>
       ) 

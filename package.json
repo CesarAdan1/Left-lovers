@@ -19,7 +19,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "surge --domain left-lovers.surge.sh",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

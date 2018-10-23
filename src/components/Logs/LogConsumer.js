@@ -53,6 +53,7 @@ const styles = theme => ({
 
   submit: {
     marginTop: theme.spacing.unit * 3,
+    width:'100%'
   },
   margin: {
     margin: theme.spacing.unit,

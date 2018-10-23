@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography';
+import view_module from '../../material-icons/view_module.svg'
+import './search.css'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 
@@ -22,6 +25,12 @@ const styles = {
     flexGrow: 1,
     height: 5
   },
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    height: 40,
+    backgroundColor: '#424242'
+  },
 };
 
 class MiddleBar extends Component{
@@ -31,13 +40,15 @@ class MiddleBar extends Component{
   return (
     <div className={classes.root}>
     <MuiThemeProvider theme={theme}>
-      <AppBar position="static" color="primary">
-        <Toolbar>
-          <Typography variant="title" color="inherit">
-            Filtrar por:
-          </Typography>
-        </Toolbar>
-      </AppBar>
+        <Paper  className={classes.header}>
+            <Toolbar>
+              <Button>
+                  Filtrar por 
+              </Button>
+              <input className="search" placeholder="Busca lo que deseas comprar"/>
+            </Toolbar>
+        </Paper>
+      
       </MuiThemeProvider>
     </div>
   );

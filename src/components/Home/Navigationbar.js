@@ -9,7 +9,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import Middlebar from './Middlebar';
+import Searchbar from './Searchbar';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -17,7 +17,7 @@ const tutorialSteps = [
   {
     label: '¿Qué es?',
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+      'src/images/pizza.jpeg'
   },
   {
     label: '¿Por qué?',
@@ -49,7 +49,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    height: 400,
+    height: 300,
     display: 'block',
     maxWidth: '100%',
     overflow: 'hidden',
@@ -91,15 +91,15 @@ class SwipeableTextMobileStepper extends React.Component {
     return (
     <React.Fragment>
       <div className={classes.root}>
-        <Paper square elevation={0} className={classes.header}>
-          <Typography>{tutorialSteps[activeStep].label}</Typography>
-        </Paper>
         <AutoPlaySwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={activeStep}
           onChangeIndex={this.handleStepChange}
           enableMouseEvents
         >
+        {/* <Paper square elevation={0} className={classes.header}>
+          <Typography>{tutorialSteps[activeStep].label}</Typography>
+        </Paper> */}
           {tutorialSteps.map((step, index) => (
             <div key={step.label}>
               {Math.abs(activeStep - index) <= 2 ? (
@@ -110,22 +110,22 @@ class SwipeableTextMobileStepper extends React.Component {
         </AutoPlaySwipeableViews>
         <MobileStepper
           steps={maxSteps}
-          position="static"
+          position="absolute"
           activeStep={activeStep}
           className={classes.mobileStepper}
           nextButton={
             <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
-              Siguiente
+              
               {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
             </Button>
           }
           backButton={
             <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
               {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-              Anterior
+              
             </Button>
           }
-        />
+        /> 
       </div>
       
       </React.Fragment>

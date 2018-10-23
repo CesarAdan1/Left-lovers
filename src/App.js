@@ -17,7 +17,7 @@ import ProfileVendor from './components/Profiles/ProfileVendor';
 import LogConsumer from './components/Logs/LogConsumer';
 import Profile from './components/Profiles/Profile';
 import ProfileUser from './components/Profiles/ProfileUser';
-import Accounts from './components/Logs/Accounts';
+import Accounts from './components/Logs/Accounts/Accounts';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -39,8 +39,7 @@ class App extends Component {
   render() {
     return (
       <div> 
-     <Header/> 
-     
+     <Header/>  
       <Switch>
       <PrivateRoute path={'/Profile'} exact component={ Profile } /> 
       <PrivateRoute path={'/ProfileUser'} exact component={ ProfileUser } />       
