@@ -1,12 +1,20 @@
+.all_elements{
+  display: flex;
+}
+
 .display{
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row-reverse;
 }
 
 .wrap{
-    display: flex;
-    margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+hr{
+  display:flex;
+  color: #959da5;
 }
 
 .item_title{
@@ -117,18 +125,31 @@ color: #959da5;
 
 .appImages{
   display: flex;
-  flex-direction: row;
-  justify-items: flex-start;
+  align-items: center
+}
+
+.alignItense{
+    
+  
 }
 
 .appLink {
   list-style: none;
 }
 
+
+
 .pageDefense {
   margin-top: 20px;
   display: flex;
-  align-items: flex-start
+  justify-content: space-around;
+  margin-right: auto;
+}
+
+.itemDos{
+    color: white;
+    font-size: 13px !important;
+    list-style: none;
 }
 
 .itemRight{

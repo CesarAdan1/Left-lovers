@@ -5,12 +5,13 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import Autosuggest from 'react-autosuggest';
+import view_module from '../../../material-icons/view_module.svg'
 
 const styles = theme => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: fade(theme.palette.common.white, 1),
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
@@ -48,21 +49,29 @@ const styles = theme => ({
   },
 });
 
+const stiles={
+  display: 'flex',
+}
+
+
 class SearchAppBar extends Component {
   render(){  
     const { classes } = this.props;
     return (
+      <div style={stiles}>
+         <img  src={view_module} alt="icon"/>
       <div className={classes.search}>
       <div className={classes.searchIcon}>
         <SearchIcon />
       </div>
       <InputBase
-        placeholder="Comienza tu busqueda aquí…"
+        placeholder="Busca comida, programas, establecimientos, productores, ..."
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,
         }}
       />
+    </div>
     </div>
     )
   }

@@ -20,7 +20,7 @@ import Menuopt from './Menuopt';
 import AuthService from '../../../Utils/AuthService';
 import  LeftLoversBlue  from './../../../images/LeftLoversBlue.svg';
 import ResponsiveDrawer from './ResponsiveDrawer';
-import './header.css';
+import './Header.css';
 
 const theme = createMuiTheme({
     palette: {
@@ -29,9 +29,8 @@ const theme = createMuiTheme({
         
       },
       secondary: {
-        main: '#FAFAFA'
+        main: '#E10050'
       },
-      
     },
   });
 
@@ -39,7 +38,7 @@ const AuthButton = withRouter(({ history }) => (
   // AuthService.isAuthenticated === true
   localStorage.getItem('jwt') !== null
     ? 
-    <div className="display">
+    <div className="displaylost">
       <MuiThemeProvider theme={theme}>
       <Button style={stilo} color='secondary' onClick={() => {
       AuthService.signout(() => {
@@ -52,22 +51,36 @@ const AuthButton = withRouter(({ history }) => (
     : 
     <div>
       <MuiThemeProvider theme={theme}>
-        <Button style={stilo} component={ Link } variant="contained" to='/Enter'  color="primary">
-          <Typography style={stylos}>Iniciar Sesión</Typography>
+      <div className="lost">
+        <Button style={styl} component={ Link } variant="contained" to='/Enter' color="primary">
+          Iniciar Sesión
         </Button>
-        <Button style={stilo} color="secondary" variant="contained" component={Link} to="/Accounts">
-          <Typography style={stylos}>Únete</Typography>
+        <Button style={styl}  variant="contained" component={Link} to="/Accounts" color="secondary">
+          Únete
         </Button>
+        </div>
       </MuiThemeProvider>
     </div>
 ));
 
-const stylos = {
-  fontSize: '14px',
-  color:"white"
+const styl = {
+    textTransform: 'none',
+    fontSize: '15px',
+    textFont: 'arial',
+    margin: '8px',
+    color: 'white'
+}
+
+const stylo = {
+    textTransform: 'none',
+    fontSize: '15px',
+    textFont: 'arial',
+   
 }
 
 const stilo ={
+     margin: '8px',
+    color: 'white',
     textTransform: 'none',
     fontSize: '15px',
     textFont: 'arial',
@@ -93,6 +106,10 @@ const styles = theme => ({
     backgroundColor: 'transparent',
     borderStyle: 'none',
   },
+  color:{
+    color:'ffff'
+  },
+  
 });
 
 class Header extends Component {
@@ -107,7 +124,7 @@ class Header extends Component {
                               <Hidden only={['md', 'lg', 'xl']}>
                                 <ResponsiveDrawer/>
                               </Hidden>
-                              
+                                  
                                       <Button component={Link} to="/">
                                           <img className={classes.image} src={cereza} alt="logo"/>
                                       </Button>
@@ -121,16 +138,16 @@ class Header extends Component {
                                   <Menuopt/>
                               </Hidden>
                               <div className="flex-menu">
-                              <AuthButton  color="secondary"/>
-                              <IconButton  aria-label="Cart">
-                              <Badge badgeContent={0}  classes={{ badge: classes.badge }}>
-                                <ShoppingCartIcon color="default"/>
-                              </Badge>
-                              </IconButton>
-                          </div>
-                                                               
-                    </Toolbar> 
-                    
+                                  <AuthButton />
+                                  <div className="posit">
+                                      <IconButton className="posit" aria-label="Cart">
+                                      <Badge badgeContent={0}  classes={{ badge: classes.badge }} color="default">
+                                        <ShoppingCartIcon color="default"/>
+                                      </Badge>
+                                      </IconButton>
+                                  </div>
+                             </div>                                         
+                    </Toolbar>  
                 </AppBar>
               </MuiThemeProvider>
             </div>

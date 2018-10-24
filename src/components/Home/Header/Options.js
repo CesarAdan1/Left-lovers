@@ -21,6 +21,9 @@ const styles = theme => ({
         display:'flex',
         alignItems: 'center',
       },
+      color: {
+          color: 'fffff'
+      }
     
   });
 
@@ -31,13 +34,13 @@ class Options extends Component {
             <div className={classes.style}>
                 <Hidden only={['xs','sm']}>
                     <Button  component={Link} to="/profileNotifications">
-                        <NotificationsIcon color="secondary"/>
+                        <NotificationsIcon className={classes.color}/>
                     </Button>
                     <Button  component={Link} to="/Profile">
-                        <AccountCircle color="secondary"/>
+                        <AccountCircle className={classes.color}/>
                     </Button>
                     <Button>
-                        <MailIcon color="secondary"/>
+                        <MailIcon className={classes.color}/>
                     </Button> 
                 </Hidden>
             
