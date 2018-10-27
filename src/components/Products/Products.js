@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import basket from '../../images/basket.jpeg'
 import PreferandShare from './PreferandShare';
 import request from 'superagent'
@@ -16,14 +15,15 @@ import './Products.css'
 
 const styles = theme => ({
   card: {
-    maxWidth:300,   
-    marginLeft: theme.spacing.unit*3 ,
-    marginRight: theme.spacing.unit*3 ,
+    maxWidth:250,   
+    marginLeft: theme.spacing.unit*1 ,
+    marginRight: theme.spacing.unit*1,
     marginBottom: theme.spacing.unit * 1,
   },
   media: {
     height: 0,
     paddingTop: '80%', 
+    zIndex:-1
   },
   actions: {
     display: 'flex',
@@ -43,6 +43,9 @@ const styles = theme => ({
   },
   avatar: {
     backgroundColor: red[500],
+  },
+  effect:{
+    zIndex:1
   }
 });
 
@@ -93,31 +96,28 @@ class Products extends Component {
          console.log(data._id)
       return(  
       <div className="flex">
-      
       <Card className={classes.card}>
         <CardHeader         
-          action={
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-          }
           title={
             <Typography component="p">
             Nombre:{data.food}
             </Typography>
           } 
-                                             
+          subheader={
+            <Typography>
+            Tipo: {data.kind}
+            </Typography>  
+          }                                   
         />
-        <CardMedia
+        <CardMedia 
           className={classes.media}
           image={basket}
           title="Here is a dish"
+          subheader={<PreferandShare />}
         />
-        <PreferandShare />
+        
         <CardContent>  
-          <Typography component="p">
-            Tipo: {data.kind}
-            </Typography> 
+          
           {this.state.googledata.map(googledata=>{
             return(
               <div>
@@ -138,9 +138,10 @@ class Products extends Component {
           </Typography>
             <Typography color="secondary" component="p">
               Ahorro: ${data.saving}
-            </Typography>       
-        </CardContent>  
-                
+           </Typography>
+            <Link to="/User">Más sobre este usuario</Link>
+       </CardContent>  
+             
       </Card>
       </div>
       ) 
@@ -155,3 +156,20 @@ Products.propTypes = {
 };
 
 export default withStyles(styles)(Products);
+
+{/* <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+          <ListSubheader component="div">December</ListSubheader>
+        </GridListTile>
+        {tileData.map(tile => (
+          <GridListTile key={tile.img}>
+            <img src={tile.img} alt={tile.title} />
+            <GridListTileBar
+              title={tile.title}
+              subtitle={<span>by: {tile.author}</span>}
+              actionIcon={
+                <IconButton className={classes.icon}>
+                  <InfoIcon />
+                </IconButton>
+              }
+            />
+          </GridListTile> */}

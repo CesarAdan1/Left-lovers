@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from '@material-ui/core/Card';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -77,7 +78,8 @@ class CommonUser extends Component {
   const { classes } = this.props;
 
   return (
-          
+      <div>
+        <Card>
           <form className={classes.form}>
          
             <FormControl margin="normal" required fullWidth>
@@ -140,7 +142,8 @@ class CommonUser extends Component {
               Inicia Sesión con Google
             </Button>
           </form>
-
+      </Card>
+    </div>
         
   );
 }

@@ -1,3 +1,9 @@
+
+.foot{
+  
+  margin: 0;
+  padding-bottom: 0;
+}
 .all_elements{
   display: flex;
 }
@@ -61,13 +67,13 @@ hr{
   flex: space-between;
 }
 
-.fa:hover {
-    opacity: 0.7;
-}
-
 .fa-facebook {
   
   color:#FCE4EC;
+}
+
+.fa-facebook:hover{
+    color: #3B5998;
 }
 
 .fa-twitter {
@@ -75,11 +81,20 @@ hr{
   color: #FCE4EC;
 }
 
+.fa-twitter:hover {
+ 
+  color: #1DA1F2;
+}
+
 .fa-instagram {
   
   color:#FCE4EC;
 }
 
+.fa-instagram:hover {
+  
+  color: rgb(76, 76, 76)
+}
 .linkstylel{
   padding-left: 5px;
   text-decoration: none;
@@ -110,6 +125,28 @@ color: #959da5;
   color: #959da5
 }
 
+.tooltip{
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover {
+  visibility: visible;
+  opacity: 1;
+}
+
 .link{
   position: absolute;
   margin-left: 8px;
@@ -123,21 +160,14 @@ color: #959da5;
   color:#f50057;
 }
 
-.appImages{
-  display: flex;
-  align-items: center
-}
-
 .alignItense{
-    
+  display:flex;
+  flex-direction: row;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center; 
   
 }
-
-.appLink {
-  list-style: none;
-}
-
-
 
 .pageDefense {
   margin-top: 20px;

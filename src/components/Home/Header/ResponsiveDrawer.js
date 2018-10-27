@@ -8,19 +8,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { Link, withRouter } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider, IconButton,
     Typography } from '@material-ui/core';
-import Collapse from '@material-ui/core/Collapse';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import StarBorder from '@material-ui/icons/StarBorder';
 import Divider from '@material-ui/core/Divider';
-//import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 import albondigas from '../../../images/albondigas.jpeg';
-
+import request from 'superagent';
+import Imagemenu from './Imagemenu';
 
 const theme = createMuiTheme({
     palette: {
@@ -35,6 +31,7 @@ const theme = createMuiTheme({
   });
 
   const styles = theme => ({
+    
     root: {
       width: '100%',
       maxWidth: 360,
@@ -44,64 +41,88 @@ const theme = createMuiTheme({
       paddingLeft: theme.spacing.unit * 4,
     },
     imagen: {
-        width: '250px',
-        opacity: 0.5
+        margin:0,
+        width: '350px',
+        height: '200px',
+        opacity: 1
     },
     arrow: {
         zIndex: 1,
     }
   });
-  
-class ResponsiveDrawer extends Component {
-    constructor() {
-        super();
-    
-        this.state = {
-          open: false,
-          open1: true
-
-        };
-      }
-    
-      toggleDrawer = () => {
-        this.setState({
-          open: !this.state.open
-        });
-      }
-      handleClick = () => {
-        this.setState(state => ({ open1: !state.open1 }));
-      };
-    
-    render(){
-        const { classes } = this.props;
-        const ListItemTextStyle = {
-            width: 200
+     const ListItemTextStyle = { 
+         width: 200
           };  
             
           const linkStyles = {
             textTransform: 'none',
             textDecoration: 'none',
             fontSize: 14,
-            fontFamily: 'Roboto',
-            fontWeight: 500,
+            
+            
             color: 'black',
             fontFamily: 'Monserrat',
-            backgroundColor: '#48B2AB'
+            
           };
           
           const linkStyle = {
             textTransform: 'uppercase',
             textDecoration: 'none',
             fontSize: 14,
-            fontFamily: 'Roboto',
-            fontWeight: 500,
             color: 'black',
             fontFamily: 'Monserrat',
-            backgroundColor: '#48B2AB'
+            
           };
+class ResponsiveDrawer extends Component {
+    constructor() {
+        super();
+    
+        this.state = {
+          open: false,
+          users:[],
+          googledata:[]
+        };
+      }
+    componentWillMount(){
+        this.mail();
+        this.telephone();
+    }
+    mail = () => {
+    request
+      .get('http://localhost:3001/api/v1/users')
+      .then(response => {
+        this.setState({
+          users: response.body.users
+            
+        })
+        console.log(response.body.googledata)
+      })
+      .catch(error =>console.log(error));
+  }
 
+  telephone = () => {
+    request
+      .get('http://localhost:3001/api/v1/googledata')
+      .then(response => {
+        this.setState({
+          googledata: response.body.googledata
+            
+        })
+        console.log(response.body.googledata)
+      })
+      .catch(error =>console.log(error));
+  }
+
+      toggleDrawer = () => {
+        this.setState({
+          open: !this.state.open
+        });
+      }
+    
+    render(){
+        const { classes } = this.props;
         return(
-            <div>
+            <div >
               <MuiThemeProvider theme={theme}>
                     <IconButton onClick={ this.toggleDrawer } color="secondary" aria-label="Menu">
                         <MenuIcon />
@@ -113,24 +134,37 @@ class ResponsiveDrawer extends Component {
                             onClick={ this.toggleDrawer }
                             onKeyDown={ this.toggleDrawer }
                             >
-                            <List color="primary">
-                                <img className={classes.imagen} src={albondigas} alt="logo"/>
-                                {/* <ListItem>
-                                <ListItemText style={ ListItemTextStyle } primary="Dashboard" />
-                                </ListItem> */}
-                                <ListItem color="primary"button onClick={this.handleClick}>       
-                                    {this.state.open1 ? <ExpandLess /> : <ExpandMore />}
-                                </ListItem>
-                                    <Collapse className={classes.arrow} color="primary" in={this.state.open1} timeout="auto" unmountOnExit>
-                                        <List component="div" disablePadding>
-                                        <ListItem color="primary" button className={classes.nested}>
-                                                <ListItemIcon>
-                                                    <StarBorder />
-                                                </ListItemIcon>
-                                            <ListItemText inset primary="Starred" />
-                                        </ListItem>
-                                        </List>
-                                    </Collapse>
+                            
+                            <List classes={classes.root}>
+                                <ListItem>
+                                    <img
+                                        className={classes.imagen}
+                                        src={albondigas}
+                                        alt="logo"
+                                    />
+                                {this.state.users.map(users =>{
+                                    return(
+                                        <div>
+                                <Typography component="p">
+                                    Correo: {users.email}
+                                 </Typography>
+                                 {this.state.googledata.map(googledata =>{
+                                     return(
+                             <div>
+                                 <Typography component="p">
+                                     {googledata.nameplace}
+                                </Typography>
+                                 <Typography component="p">
+                                     Teléfono: {googledata.telefono}
+                                </Typography>      
+                            </div>
+                                  )
+                                 })}
+                                 </div>
+                             ) })}   
+                             
+                             </ListItem>
+                                <Divider/>
                                     <ListItem button color="primary">
                                             <Link style={ linkStyles } to="/quees" >¿Qué es?</Link>
                                     </ListItem >

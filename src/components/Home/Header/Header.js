@@ -68,7 +68,8 @@ const styl = {
     fontSize: '15px',
     textFont: 'arial',
     margin: '8px',
-    color: 'white'
+    color: 'white',
+    border: 'none'
 }
 
 const stylo = {

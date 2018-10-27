@@ -102,7 +102,7 @@ class Mobilestepper extends Component {
             </div>
           ))}
         </AutoPlaySwipeableViews>
-        <MobileStepper
+        {/* <MobileStepper
           steps={maxSteps}
           position="absolute"
           activeStep={activeStep}
@@ -117,7 +117,7 @@ class Mobilestepper extends Component {
               {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />} 
             </Button>
           }
-        /> 
+        />  */}
       </div>
       </React.Fragment>
     );

@@ -44,9 +44,9 @@ const theme = createMuiTheme({
         height: '39px', 
     },
     footer: {
-       backgroundcolor:'#313131',
-       marginTop: '100%', 
-       marginBottom: '20px'
+       
+       marginBottom: 0,
+       padding: 0,
     },
     logos: {
         
@@ -60,9 +60,9 @@ class Footer extends Component{
     render() {
     const {classes}=this.props;
         return (
-            <div>
+            <div  className="foot">
               <MuiThemeProvider theme={ theme }>
-                    <AppBar className={classes.footer} position="static" color="secondary" >
+                    <AppBar  position="static" className={classes.footer} color="secondary" >
                         <Toolbar>
                             <React.Fragment>
                                 <div className={classes.logos}>
@@ -87,7 +87,7 @@ class Footer extends Component{
                                     </div>
                                     <div className="wrap">
                                         <ul>
-                                            <Link to="/RAA" className="linkstylel"><li className="item_title">Rentabiliza - Ahorra - Ayuda</li></Link>
+                                            <li className="item_title">Rentabiliza - Ahorra - Ayuda</li>
                                             <Link to="/PublicarOfertas" className="linkstylel"><li className="item">Publicar Ofertas</li></Link>
                                             <Link to="/verOfertas" className="linkstylel"><li className="item">Ver Ofertas</li></Link>
                                             <Link to="/Beneficios" className="linkstylel"><li className="item">Beneficios</li></Link>
@@ -96,10 +96,10 @@ class Footer extends Component{
                                     </div>
                                     <div className="wrap">
                                         <ul >
-                                            <li className="item_title">Programas  <Link to="/Programas"><a className="link"href="#">Ver más</a></Link></li>
-                                            <Link to="/ComedoresComunitarios" className="linkstylel"><li className="item">Comedores Comunitarios</li></Link>
-                                            <Link to="/Voluntarios" className="linkstylel"><li className="item">Voluntarios</li></Link>
-                                            <Link to="/Colectas" className="linkstylel"><li className="item">Colectas</li></Link>
+                                            <li className="item_title">Programas<Link to="/Programas"><a className="link"href="#">Ver más</a></Link></li>
+                                            <Link to="/ComedoresComunitarios" className="linkstylel"><li className="item">Comedores Comunitarios<span className="tooltip">Participa</span></li></Link>
+                                            <Link to="/Voluntarios" className="linkstylel"><li className="item">Voluntarios<span className="tooltip">Conviértete en un voluntario</span></li></Link>
+                                            <Link to="/Colectas" className="linkstylel"><li className="item">Colectas<span className="tooltip"></span></li></Link>
                                             <li className="item"></li>
                                         </ul>
                                     </div>
@@ -123,12 +123,12 @@ class Footer extends Component{
                                     </div>
                                     </div>
                                     
-                                    <div className="alignItemse">
-                                        <ul className="appImages">
-                                            <li className="appLink"><Button><img className={classes.imagen} src={iOs} alt="logo"/></Button></li>
-                                            <li className="appLink"><Button><img className={classes.imagen} src={android} alt="logo"/></Button></li>
-                                        </ul>
-                                    </div> 
+                                   
+                                        <div className="alignItemse">
+                                            <img className={classes.imagen} src={iOs} alt="logo"/>
+                                            <img className={classes.imagen} src={android} alt="logo"/>
+                                        </div>
+                                   
                                 
                                     <div >
                                         <ul className="pageDefense">
