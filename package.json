@@ -1,5 +1,6 @@
 {
   "name": "lefloversfront",
+  "homepage": "http://CesarAdan1.github.io/project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,20 +9,18 @@
     "react": "^16.5.2",
     "react-autosuggest": "^9.4.2",
     "react-dom": "^16.5.2",
-    "react-google-maps": "^9.4.5",
     "react-places-autocomplete": "^7.2.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
-    "react-swipeable-views": "^0.12.17",
     "superagent": "^4.0.0-beta.5",
-    "typeface-roboto": "0.0.54",
-    "w3-css": "^4.1.0"
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
