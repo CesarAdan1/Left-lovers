@@ -42,8 +42,8 @@ const theme = createMuiTheme({
     },
     imagen: {
         margin:0,
-        width: '350px',
-        height: '200px',
+        width: '250px',
+        height: '150px',
         opacity: 1
     },
     arrow: {
@@ -137,11 +137,7 @@ class ResponsiveDrawer extends Component {
                             
                             <List classes={classes.root}>
                                 <ListItem>
-                                    <img
-                                        className={classes.imagen}
-                                        src={albondigas}
-                                        alt="logo"
-                                    />
+                                   
                                 {this.state.users.map(users =>{
                                     return(
                                         <div>
