@@ -9,7 +9,6 @@ import {Snackbar, Typography }from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 import AuthService from '../../Utils/AuthService';
 import { Redirect } from 'react-router-dom';
-import join from '../../images/join.jpeg'
 import { createMuiTheme } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import './Enter.css';
@@ -121,7 +120,7 @@ class Enter extends Component {
   <div className="separate">
       <div className="flex">
           <div className="child">
-            <img src={join} />
+            
           </div>
             <div className="space">
               <form className="child" onSubmit={ this.login } className={classes.layout}>

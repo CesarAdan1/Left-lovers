@@ -4,8 +4,6 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import Autosuggest from 'react-autosuggest';
-import view_module from '../../../material-icons/view_module.svg'
 
 const styles = theme => ({
   search: {
@@ -59,7 +57,7 @@ class SearchAppBar extends Component {
     const { classes } = this.props;
     return (
       <div style={stiles}>
-         <img  src={view_module} alt="icon"/>
+         
       <div className={classes.search}>
       <div className={classes.searchIcon}>
         <SearchIcon />

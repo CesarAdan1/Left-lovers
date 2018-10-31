@@ -55,7 +55,7 @@ const AuthButton = withRouter(({ history }) => (
         <Button style={styl} component={ Link } variant="contained" to='/Enter' color="primary">
           Iniciar Sesión
         </Button>
-        <Button style={styl}  variant="contained" component={Link} to="/Accounts" color="secondary">
+        <Button style={styl}  variant="contained" component={Link} to="/Log" color="secondary">
           Únete
         </Button>
         </div>

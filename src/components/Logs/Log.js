@@ -7,7 +7,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import request from 'superagent';
-import again from '../../images/again.jpeg'
 import { Redirect } from 'react-router-dom';
 import './Enter.css';
 
@@ -112,7 +111,7 @@ class Log extends Component {
          
             <div className="child">
               
-              <img src={again}/>
+              
             </div>
             <div>
              <form className="child" onSubmit={this.onSubmit} className={classes.layout}>

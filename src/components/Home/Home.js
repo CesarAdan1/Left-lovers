@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navigationbar from './Navigation/Navigationbar'
-import Selling from '../Products/Selling';
 import Products from '../Products/Products';
 import './home.css'
 
@@ -38,21 +37,19 @@ class Home extends Component {
                     <Navigationbar/>
                 <div style={squareWhite}> 
                     <div className="containerTitle">
-                        <h2 className="Titleright">
+                        
                             <span className="titleName">Conoce Left Lovers</span>
-                        </h2>
+                        
                     <span className="linktoTitle">Ver más</span> 
-                    <div className="carrouselArrow">
-
-                    </div>
+                   
                     </div>
                 </div>
                 <div style={squareWhite}>
                 
                 <div className="containerTitle">
-                    <h2 className="Titleright">
+                    
                         <span className="titleName">Reciente</span>
-                    </h2>
+                    
                     <span className="linktoTitle">Ver más</span>
                 </div>
                                 
@@ -62,43 +59,45 @@ class Home extends Component {
                 
                 </div>    
                 <div style={squareGray}>
-                <div className="containerTitle"></div>
-                    <h2 className="Titleright">
+                <div style={squareGray}>
+                <div className="containerTitle">
+                   
                         <span className="titleName">Lo más comprado</span>
-                    </h2>
-                    <span className="linktoTitle">Ver más</span> 
+                   
+                    <span className="linktoTitle">Ver más</span>
                 </div>
                     <Products/>
                 </div> 
                 <div style={squareWhite}>
                 <div className="containerTitle">
-                    <h2 className="Titleright">
+                    
                         <span className="titleName">Promociones del día</span>
-                    </h2>
+                    
                     <span className="linktoTitle">Ver más</span> 
                 </div>
                     <Products/>
                 </div>
                 <div style={squareGray}>
                 <div className="containerTitle">
-                    <h2 className="Titleright">
+                   
                         <span className="titleName">Arma tu lista de compras</span>
-                    </h2>
+                   
                     <span className="linktoTitle">Ver más</span>
                 </div>
                     <Products/>
                 </div> 
                 <div style={squareWhite}>
                 <div className="containerTitle">
-                    <h2 className="Titleright">
+                    
                         <span className="titleName">Tiendas y Autoservicios</span>
-                    </h2>
+                    
                     <span className="linktoTitle">Ver más</span>
                 </div>
                     <Products/>
                 </div>                        
             </div>
-           
+           </div>
+           </div>
         );
     }
 }

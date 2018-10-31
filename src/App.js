@@ -14,10 +14,8 @@ import Header from './components/Home/Header/Header';
 import Product from './components/Profiles/Product';
 import { Switch, Route, Redirect} from 'react-router-dom';
 import ProfileVendor from './components/Profiles/ProfileVendor';
-import LogConsumer from './components/Logs/LogConsumer';
 import Profile from './components/Profiles/Profile';
 import ProfileUser from './components/Profiles/ProfileUser';
-import Accounts from './components/Logs/Accounts/Accounts';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -48,8 +46,6 @@ class App extends Component {
         <Route exact path={"/Enter"} component={Enter}/> 
         <Route exact path={"/FAQ"} component={FAQ} /> 
         <Route exact path={"/Log"} component={Log} /> 
-        <Route exact path={"/LogConsumer"} component={LogConsumer} /> 
-        <Route exact path = {"/Accounts"} component={Accounts}/>
         <Route exact path={"/Nosotros"} component={Nosotros} />  
         <Route exact path={"/Contacto"} component={Contacto} /> 
         <Route exact path={"/únete"} component={Log}/>   

@@ -45,7 +45,7 @@ const theme = createMuiTheme({
     },
     footer: {
        
-       marginBottom: 0,
+       marginTop:'100%',
        padding: 0,
     },
     logos: {

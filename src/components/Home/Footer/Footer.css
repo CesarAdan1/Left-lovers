@@ -1,8 +1,8 @@
 
 .foot{
+
+  margin-top:100%;
   
-  margin: 0;
-  padding-bottom: 0;
 }
 .all_elements{
   display: flex;

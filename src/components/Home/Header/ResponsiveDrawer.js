@@ -34,7 +34,7 @@ const theme = createMuiTheme({
     
     root: {
       width: '100%',
-      maxWidth: 360,
+      maxWidth: 250,
       backgroundColor: theme.palette.background.paper,
     },
     nested: {
