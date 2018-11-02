@@ -53,9 +53,9 @@ const AuthButton = withRouter(({ history }) => (
     <div>
       <MuiThemeProvider theme={theme}>
       <div className="lost">
-        <Button style={styl} component={ Link } variant="contained" to='/Enter' color="primary">
+        <Typography style={Initbutton} component={ Link } variant="contained" to='/Enter' color="primary">
           Iniciar Sesión
-        </Button>
+        </Typography>
         <Hidden only={['sm', 'xs']}>
           <Button style={styl}  variant="contained" component={Link} to="/Log" color="secondary">
               Únete
@@ -70,7 +70,20 @@ const styl = {
     textTransform: 'none',
     fontSize: '15px',
     textFont: 'arial',
-    margin: '8px',
+    margin: 'auto',
+    color: 'white',
+    border: 'none'
+}
+
+const Initbutton = {
+    textTransform: 'none',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline'
+    },
+    fontSize: '15px',
+    textFont: 'arial',
+    marginLeft: 'auto',
     color: 'white',
     border: 'none'
 }
@@ -98,10 +111,16 @@ const styles = theme => ({
     }`,
   },
   image: {
-    width: '30px'
+    width: '30px',
+    [theme.breakpoints.only('sm','xs')]:{
+        alignItems: 'center',
+    },
   },
   logo: {
-    width: '80px'
+    width: '80px',
+    [theme.breakpoints.only('md','lg','xl')]:{
+      alignItems: 'center',
+  },
   },
   card: {
     backgroundColor: 'transparent',
@@ -120,7 +139,10 @@ const styles = theme => ({
     marginRight:0,
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'spaceBetween'
+    justifyContent: 'spaceBetween',
+    [theme.breakpoints.only('')]:{
+
+    },
 }
 
 });
@@ -138,10 +160,10 @@ class Header extends Component {
                     color="primary"
                     >
                           <Toolbar>
-                              <Hidden only={['lg', 'xl']}>
+                              <Hidden only={['md','lg', 'xl']}>
                                 <ResponsiveDrawer/>
                               </Hidden>
-                              <Hidden only={['lg', 'xl']}>
+                              <Hidden only={['md','lg', 'xl']}>
                                 <SearchIcon
                                 
                                 />
