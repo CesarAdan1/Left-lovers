@@ -25,6 +25,7 @@ const styles = theme => ({
     width: theme.spacing.unit * 9,
     height: '100%',
     position: 'absolute',
+    marginRight: '100%',
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',

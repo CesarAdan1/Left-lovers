@@ -1,8 +1,8 @@
 .containerTitle{
     display: flex;
     flex-direction: row;
-    padding-left: 30px;
-    margin-left: 30px;
+    padding-left: 20px;
+    margin-left: 20px;
 }
 
 .titleName{
@@ -25,8 +25,4 @@
 .linktoTitle:hover{
     text-decoration: underline;
     color:#f50057;
-}
-
-.carrouselArrow{
-
 }

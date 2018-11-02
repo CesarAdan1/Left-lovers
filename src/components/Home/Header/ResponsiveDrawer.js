@@ -14,9 +14,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import albondigas from '../../../images/albondigas.jpeg';
 import request from 'superagent';
-import Imagemenu from './Imagemenu';
 
 const theme = createMuiTheme({
     palette: {
@@ -33,8 +31,7 @@ const theme = createMuiTheme({
   const styles = theme => ({
     
     root: {
-      width: '100%',
-      maxWidth: 250,
+      maxWidth: '60%',    
       backgroundColor: theme.palette.background.paper,
     },
     nested: {
@@ -50,6 +47,7 @@ const theme = createMuiTheme({
         zIndex: 1,
     }
   });
+
      const ListItemTextStyle = { 
          width: 200
           };  
@@ -58,8 +56,6 @@ const theme = createMuiTheme({
             textTransform: 'none',
             textDecoration: 'none',
             fontSize: 14,
-            
-            
             color: 'black',
             fontFamily: 'Monserrat',
             
@@ -73,6 +69,7 @@ const theme = createMuiTheme({
             fontFamily: 'Monserrat',
             
           };
+
 class ResponsiveDrawer extends Component {
     constructor() {
         super();

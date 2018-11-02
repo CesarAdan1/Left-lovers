@@ -14,9 +14,9 @@ class Menuopt extends Component{
             <div >
 
                <ul className="form">
-                   <Link className="linkstylel"  to="/quees"><Button style={styles}><li className="form_element">¿Qué es?</li></Button></Link>
-                   <Link className="linkstylel"  to="/como"><Button style={styles}><li className="form_element">¿Cómo Funciona?</li></Button></Link>
-                   <Link className="linkstylel"  to="porque"><Button style={styles}><li className="form_element">¿Por qué?</li></Button></Link>
+                   <Link className="linkstylel"  to="/quees"><li className="form_element">¿Qué es?</li></Link>
+                   <Link className="linkstylel"  to="/como"><li className="form_element">¿Cómo Funciona?</li></Link>
+                   <Link className="linkstylel"  to="porque"><li className="form_element">¿Por qué?</li></Link>
                </ul>
             </div>
         )

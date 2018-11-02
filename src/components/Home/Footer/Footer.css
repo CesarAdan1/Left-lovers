@@ -1,9 +1,3 @@
-
-.foot{
-
-  margin-top:100%;
-  
-}
 .all_elements{
   display: flex;
 }
@@ -177,7 +171,7 @@ color: #959da5;
 }
 
 .itemDos{
-    color: white;
+    color: #959da5;
     font-size: 13px !important;
     list-style: none;
 }

@@ -50,7 +50,7 @@ const theme = createMuiTheme({
     },
     logos: {
         
-        marginLeft: theme.spacing.unit * 3,
+        marginLeft: theme.spacing.unit * 1,
         marginTop: theme.spacing.unit,
     }
 })
@@ -60,7 +60,7 @@ class Footer extends Component{
     render() {
     const {classes}=this.props;
         return (
-            <div  className="foot">
+            <div  className={ classes.footer }>
               <MuiThemeProvider theme={ theme }>
                     <AppBar  position="static" className={classes.footer} color="secondary" >
                         <Toolbar>

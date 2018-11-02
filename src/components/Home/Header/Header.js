@@ -20,6 +20,7 @@ import Menuopt from './Menuopt';
 import AuthService from '../../../Utils/AuthService';
 import  LeftLoversBlue  from './../../../images/LeftLoversBlue.svg';
 import ResponsiveDrawer from './ResponsiveDrawer';
+import SearchIcon from '@material-ui/icons/Search';
 import './Header.css';
 
 const theme = createMuiTheme({
@@ -55,9 +56,11 @@ const AuthButton = withRouter(({ history }) => (
         <Button style={styl} component={ Link } variant="contained" to='/Enter' color="primary">
           Iniciar Sesión
         </Button>
-        <Button style={styl}  variant="contained" component={Link} to="/Log" color="secondary">
-          Únete
-        </Button>
+        <Hidden only={['sm', 'xs']}>
+          <Button style={styl}  variant="contained" component={Link} to="/Log" color="secondary">
+              Únete
+          </Button>
+        </Hidden>
         </div>
       </MuiThemeProvider>
     </div>
@@ -72,13 +75,6 @@ const styl = {
     border: 'none'
 }
 
-const stylo = {
-    textTransform: 'none',
-    fontSize: '15px',
-    textFont: 'arial',
-   
-}
-
 const stilo ={
      margin: '8px',
     color: 'white',
@@ -89,6 +85,10 @@ const stilo ={
   }
 
 const styles = theme => ({
+  mainbar:{
+    height: '65px',
+    
+  },
   badge: {
     top: 1,
     right: -15,
@@ -110,8 +110,21 @@ const styles = theme => ({
   color:{
     color:'ffff'
   },
-  
+  cart: {
+    marginLeft: 'auto',
+    marginTop: '8px',
+    marginBottom: '8px'
+  },
+  flexMenu:{
+    marginLeft: 'auto',
+    marginRight:0,
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'spaceBetween'
+}
+
 });
+
 
 class Header extends Component {
     render() {
@@ -119,17 +132,32 @@ class Header extends Component {
         return (
             <div>            
                <MuiThemeProvider theme={theme}>
-                <AppBar position='static' color="primary">
-                     
+                    <AppBar 
+                    className={classes.mainbar} 
+                    position='static' 
+                    color="primary"
+                    >
                           <Toolbar>
-                              <Hidden only={['md', 'lg', 'xl']}>
+                              <Hidden only={['lg', 'xl']}>
                                 <ResponsiveDrawer/>
                               </Hidden>
+                              <Hidden only={['lg', 'xl']}>
+                                <SearchIcon
+                                
+                                />
+                              </Hidden>
                                   
-                                      <Button component={Link} to="/">
-                                          <img className={classes.image} src={cereza} alt="logo"/>
-                                      </Button>
-                                        <img className={classes.logo} src={LeftLoversBlue} alt="logo"/>
+                                      <IconButton component={Link} to="/">
+                                          <img className={classes.image} 
+                                          src={cereza} 
+                                          alt="logo"
+                                          />
+                                      </IconButton>
+                                        <img 
+                                        className={classes.logo} 
+                                        src={LeftLoversBlue} 
+                                        alt="logo"
+                                        />
                                 
                                   <Hidden only={['xs','sm']}>
                                    <SearchAppBar />
@@ -138,16 +166,20 @@ class Header extends Component {
                               <Hidden only={['xs','sm']}>
                                   <Menuopt/>
                               </Hidden>
-                              <div className="flex-menu">
+                              <div className={classes.flexMenu}>
                                   <AuthButton />
-                                  <div className="posit">
-                                      <IconButton className="posit" aria-label="Cart">
-                                      <Badge badgeContent={0}  classes={{ badge: classes.badge }} color="default">
+                               </div>    
+                                      <IconButton 
+                                      className={classes.cart} 
+                                      aria-label="Cart"
+                                      >
+                                      <Badge badgeContent={0}  
+                                      classes={{ badge: classes.badge }} 
+                                      color="default">
                                         <ShoppingCartIcon color="default"/>
                                       </Badge>
                                       </IconButton>
-                                  </div>
-                             </div>                                         
+                                                                                  
                     </Toolbar>  
                 </AppBar>
               </MuiThemeProvider>

@@ -39,9 +39,7 @@ class Navigationbar extends Component {
     const { classes} = this.props;
     return (
     <React.Fragment>
-      <Hidden only={['md', 'lg', 'sm', 'xl']}>
-        <SearchAppBar/>
-      </Hidden>
+
       <Mobilestepper/>
       </React.Fragment>
     );
