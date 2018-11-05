@@ -121,7 +121,7 @@ class ResponsiveDrawer extends Component {
         return(
             <div >
               <MuiThemeProvider theme={theme}>
-                    <IconButton onClick={ this.toggleDrawer } color="secondary" aria-label="Menu">
+                    <IconButton onClick={ this.toggleDrawer } color="default" aria-label="Menu">
                         <MenuIcon />
                     </IconButton>
                         <Drawer open={ this.state.open } onClose={ this.toggleDrawer }>
@@ -137,7 +137,7 @@ class ResponsiveDrawer extends Component {
                                    
                                 {this.state.users.map(users =>{
                                     return(
-                                        <div>
+                            <div>
                                 <Typography component="p">
                                     Correo: {users.email}
                                  </Typography>

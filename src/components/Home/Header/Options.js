@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 import MailIcon from '@material-ui/icons/Mail';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import compose from 'recompose/compose';
 import withWidth from '@material-ui/core/withWidth';
@@ -12,14 +12,14 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 
 const styles = theme => ({
      style: {
-        color: 'white',
-        padding: '0 30px',
         textTransform: "lowercase",
         display:'flex',
         alignItems: 'center',
       },
       color: {
-          color: 'fffff'
+          margin: 'auto',
+          color: 'white',
+          padding: 0,
       }
     
   });
@@ -30,15 +30,15 @@ class Options extends Component {
         return(
             <div className={classes.style}>
                 <Hidden only={['xs','sm']}>
-                    <Button  component={Link} to="/profileNotifications">
+                    <IconButton  component={Link} to="/profileNotifications">
                         <NotificationsIcon className={classes.color}/>
-                    </Button>
-                    <Button  component={Link} to="/Profile">
+                    </IconButton>
+                    <IconButton  component={Link} to="/Profile">
                         <AccountCircle className={classes.color}/>
-                    </Button>
-                    <Button>
+                    </IconButton>
+                    <IconButton>
                         <MailIcon className={classes.color}/>
-                    </Button> 
+                    </IconButton> 
                 </Hidden>
             
             </div>

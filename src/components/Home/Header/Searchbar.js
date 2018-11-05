@@ -39,11 +39,11 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
     paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 7,
+    paddingLeft: theme.spacing.unit * 20,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: 200,
+      width: 500,
     },
   },
 });
@@ -52,13 +52,36 @@ const stiles={
   display: 'flex',
 }
 
-
 class SearchAppBar extends Component {
-  render(){  
+  constructor(){
+    super()
+
+    this.state = {
+      searcbar: false,  
+    }
+  }
+
+  showsearchBar = (e) => {
+    e.preventDefault();
+
+    if(this.state.searchbar===false){
+      this.setState({
+         
+      })
+    }
+    
+  }
+  render(){
+      
     const { classes } = this.props;
     return (
       <div style={stiles}>
-         
+         <Hidden only={['md','lg', 'xl']}>
+                                  <IconButton onClick={ this.searchBar }>
+                                    <SearchIcon open={ this.state.open }
+                                     onClose={ this.searchBar }/>
+                                  </IconButton>
+                              </Hidden>
       <div className={classes.search}>
       <div className={classes.searchIcon}>
         <SearchIcon />

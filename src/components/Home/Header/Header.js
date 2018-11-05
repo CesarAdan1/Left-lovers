@@ -12,7 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import withWidth from '@material-ui/core/withWidth'
 import Badge from '@material-ui/core/Badge';
 import { createMuiTheme, MuiThemeProvider, IconButton , 
-  Typography, Card} from '@material-ui/core';
+  Typography, Card, Icon} from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import  cereza  from '../../../images/cereza.png';
 import SearchAppBar from './Searchbar';
@@ -21,7 +21,7 @@ import AuthService from '../../../Utils/AuthService';
 import  LeftLoversBlue  from './../../../images/LeftLoversBlue.svg';
 import ResponsiveDrawer from './ResponsiveDrawer';
 import SearchIcon from '@material-ui/icons/Search';
-import './Header.css';
+import { relative } from 'path';
 
 const theme = createMuiTheme({
     palette: {
@@ -35,38 +35,7 @@ const theme = createMuiTheme({
     },
   });
 
-const AuthButton = withRouter(({ history }) => (
-  // AuthService.isAuthenticated === true
-  localStorage.getItem('jwt') !== null
-    ? 
-    <div className="displaylost">
-      <MuiThemeProvider theme={theme}>
-      <Button style={stilo} color='secondary' onClick={() => {
-      AuthService.signout(() => {
-        history.push('/')
-      });
-    }}>Salir</Button>
-            <Options/>
-            </MuiThemeProvider>
-            </div>
-    : 
-    <div>
-      <MuiThemeProvider theme={theme}>
-      <div className="lost">
-        <Typography style={Initbutton} component={ Link } variant="contained" to='/Enter' color="primary">
-          Iniciar Sesión
-        </Typography>
-        <Hidden only={['sm', 'xs']}>
-          <Button style={styl}  variant="contained" component={Link} to="/Log" color="secondary">
-              Únete
-          </Button>
-        </Hidden>
-        </div>
-      </MuiThemeProvider>
-    </div>
-));
-
-const styl = {
+  const styl = {
     textTransform: 'none',
     fontSize: '15px',
     textFont: 'arial',
@@ -79,7 +48,7 @@ const Initbutton = {
     textTransform: 'none',
     textDecoration: 'none',
     '&:hover': {
-      textDecoration: 'underline'
+      textDecoration: 'underline',
     },
     fontSize: '15px',
     textFont: 'arial',
@@ -88,14 +57,59 @@ const Initbutton = {
     border: 'none'
 }
 
-const stilo ={
-     margin: '8px',
+const stilo = {
+    margin: '8px',
     color: 'white',
     textTransform: 'none',
     fontSize: '15px',
     textFont: 'arial',
     marginRight: 0
   }
+
+const displaylost = {
+    display: 'flex',
+    flexDirection: 'rowReverse'
+ 
+}
+
+const lost = {
+  display: 'flex',
+  justifyContent: 'spaceBetween',
+}
+
+
+const AuthButton = withRouter(({ history }) => (
+  // AuthService.isAuthenticated === true
+  localStorage.getItem('jwt') !== null
+    ? 
+    <div style={displaylost}>
+      <MuiThemeProvider theme={theme}>
+      <Hidden only={['sm', 'xs']}>
+      <Button style={stilo} color='secondary' onClick={() => {
+      AuthService.signout(() => {
+        history.push('/')
+      });
+    }}>Salir</Button>
+    </Hidden>
+            <Options/>
+            </MuiThemeProvider>
+    </div>
+    : 
+    <div>
+      <MuiThemeProvider theme={theme}>
+      <div style={ lost }>
+        <Hidden only={['sm', 'xs']}>
+          <Button style={ styl }  variant="contained" component={Link} to="/Log" color="secondary">
+              Únete
+          </Button>
+        </Hidden>
+        <Typography style={ Initbutton } component={ Link } variant="contained" to='/Enter' color="primary">
+          Iniciar Sesión
+        </Typography>
+        </div>
+      </MuiThemeProvider>
+    </div>
+));
 
 const styles = theme => ({
   mainbar:{
@@ -110,17 +124,17 @@ const styles = theme => ({
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900]
     }`,
   },
+  center:{
+    marginRight: 'auto',
+     [theme.breakpoints.only(sm, xs)]:{
+        marginLeft:'20px',
+    }, 
+  },
   image: {
-    width: '30px',
-    [theme.breakpoints.only('sm','xs')]:{
-        alignItems: 'center',
-    },
+    width: '30px', 
   },
   logo: {
     width: '80px',
-    [theme.breakpoints.only('md','lg','xl')]:{
-      alignItems: 'center',
-  },
   },
   card: {
     backgroundColor: 'transparent',
@@ -143,12 +157,16 @@ const styles = theme => ({
     [theme.breakpoints.only('')]:{
 
     },
-}
+},
+  searchPosition: {
+    position: 'relative'
+  }
 
 });
 
 
 class Header extends Component {
+  
     render() {
       const { classes } = this.props;
         return (
@@ -159,51 +177,45 @@ class Header extends Component {
                     position='static' 
                     color="primary"
                     >
-                          <Toolbar>
-                              <Hidden only={['md','lg', 'xl']}>
-                                <ResponsiveDrawer/>
+                        <Toolbar>
+                           <Hidden only={['md','lg', 'xl']}>
+                             <ResponsiveDrawer/>
+                           </Hidden>
+                           
+                           <div className={classes.center}>
+                              <IconButton component={Link} to="/">
+                                  <img className={classes.image} 
+                                  src={cereza} 
+                                  alt="logo"
+                                  />
+                              </IconButton>
+                                  <img 
+                                  className={classes.logo} 
+                                  src={LeftLoversBlue} 
+                                  alt="logo"
+                                  />
+                            </div>
+                              <Hidden only={['xs','sm']}>
+                                  <SearchAppBar />
                               </Hidden>
-                              <Hidden only={['md','lg', 'xl']}>
-                                <SearchIcon
-                                
-                                />
-                              </Hidden>
-                                  
-                                      <IconButton component={Link} to="/">
-                                          <img className={classes.image} 
-                                          src={cereza} 
-                                          alt="logo"
-                                          />
-                                      </IconButton>
-                                        <img 
-                                        className={classes.logo} 
-                                        src={LeftLoversBlue} 
-                                        alt="logo"
-                                        />
-                                
-                                  <Hidden only={['xs','sm']}>
-                                   <SearchAppBar />
-                                  </Hidden>
-                            
                               <Hidden only={['xs','sm']}>
                                   <Menuopt/>
                               </Hidden>
                               <div className={classes.flexMenu}>
                                   <AuthButton />
-                               </div>    
-                                      <IconButton 
-                                      className={classes.cart} 
-                                      aria-label="Cart"
-                                      >
-                                      <Badge badgeContent={0}  
-                                      classes={{ badge: classes.badge }} 
-                                      color="default">
-                                        <ShoppingCartIcon color="default"/>
-                                      </Badge>
-                                      </IconButton>
-                                                                                  
-                    </Toolbar>  
-                </AppBar>
+                              </div>    
+                               <IconButton 
+                               className={classes.cart} 
+                               aria-label="Cart"
+                               >
+                                  <Badge badgeContent={0}  
+                                  classes={{ badge: classes.badge }} 
+                                  color="default">
+                                      <ShoppingCartIcon color="default"/>
+                                  </Badge>
+                              </IconButton>                                                    
+                      </Toolbar>  
+                  </AppBar>
               </MuiThemeProvider>
             </div>
         );
