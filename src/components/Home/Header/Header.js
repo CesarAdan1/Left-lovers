@@ -126,9 +126,14 @@ const styles = theme => ({
   },
   center:{
     marginRight: 'auto',
-     [theme.breakpoints.only(sm, xs)]:{
-        marginLeft:'20px',
-    }, 
+     [theme.breakpoints.only('sm', 'xs')]:{
+        marginLeft:'auto',
+        marginRight: 'auto'
+    },  
+      [theme.breakpoints.only('md', 'lg','xl')]:{
+      marginLeft:'auto',
+      marginRight: 'auto'
+  },
   },
   image: {
     width: '30px', 
@@ -198,9 +203,9 @@ class Header extends Component {
                               <Hidden only={['xs','sm']}>
                                   <SearchAppBar />
                               </Hidden>
-                              <Hidden only={['xs','sm']}>
+                              {/* <Hidden only={['xs','sm']}>
                                   <Menuopt/>
-                              </Hidden>
+                              </Hidden> */}
                               <div className={classes.flexMenu}>
                                   <AuthButton />
                               </div>    

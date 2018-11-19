@@ -4,6 +4,8 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@material-ui/core/Hidden';
 
 const styles = theme => ({
   search: {
@@ -22,7 +24,7 @@ const styles = theme => ({
     },
   },
   searchIcon: {
-    width: theme.spacing.unit * 9,
+    width: theme.spacing.unit * 5,
     height: '100%',
     position: 'absolute',
     marginRight: '100%',
@@ -43,7 +45,7 @@ const styles = theme => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: 500,
+      width: 400,
     },
   },
 });
